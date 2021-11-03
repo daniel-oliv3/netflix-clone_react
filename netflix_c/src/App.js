@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Tmdb from './Tmdb';
 
-function App ()  {
+
+export default () => {
+
+  useEffect(() => {
+    const loadeAll = async () => {
+      // Pegando a lista TOTAL
+      let list = await Tmdb.getHomeList();
+      console.log(list);
+    }
+
+    loadeAll();
+  }, []);
+
+
   return (
     <div>
       Olá, Mundo!
@@ -8,4 +22,4 @@ function App ()  {
   );
 }
 
-export default App;
+
