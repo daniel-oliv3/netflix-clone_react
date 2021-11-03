@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default () => {
+function App ()  {
   return (
     <div>
-      Olá, Mundo
+      Olá, Mundo!
     </div>
   );
 }
+
+export default App;
