@@ -4,22 +4,29 @@ import Tmdb from './Tmdb';
 
 export default () => {
 
-  useEffect(() => {
-    const loadeAll = async () => {
-      // Pegando a lista TOTAL
-      let list = await Tmdb.getHomeList();
-      console.log(list);
-    }
+    const [movieList, setMovieList] = useState([]);
 
-    loadeAll();
-  }, []);
+    useEffect(() => {
+        const loadeAll = async() => {
+            // Pegando a lista TOTAL
+            let list = await Tmdb.getHomeList();
+            setMovieList(list);
+        }
 
+        loadeAll();
+    }, []);
 
-  return (
-    <div>
-      Olá, Mundo!
+return (
+    <div className="pages">
+        <section className="lits">
+            {movieList.map((item, key) => (
+                <div>
+                    {item.title}
+                </div>
+            ))}
+        </section>
     </div>
-  );
+);
 }
 
 
